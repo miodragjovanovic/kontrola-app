@@ -1,0 +1,15 @@
+<h1>
+  <label for="nodename">Name: </label>
+  <input type="text" #nodename name="name">
+  <br/>
+  <label for="parent">Parent ID: </label>
+  <input type="text" #parent name="parent">
+  <br/>
+  <input type="button" value="Add node" (click)="addNode(nodename.value, parent.value)">
+  <div *ngFor="let node of nodes">
+    <p>{{ node.name }}</p>
+    <ul>
+      <li>ID: {{ node.id }}</li>
+      <li *ngIf="node.parent">Parent: {{ node.parent.name }}</li>
+    </ul>
+  </div>
